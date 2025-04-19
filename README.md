@@ -1,3 +1,4 @@
-# power-outage-analysis
-
-Testing the minima theme
+---
+layout: page
+title: Predicting the Reach of Power Outages
+---
