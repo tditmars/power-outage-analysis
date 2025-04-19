@@ -1,5 +1,3 @@
-# Predicting the Reach of Power Outages
-
 by Tyler Ditmars (tditmars@umich.edu) and Neha Pinnu (npinnu@umich.edu)
 
 ## Introduction
