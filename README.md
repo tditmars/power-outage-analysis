@@ -1,3 +1,3 @@
 # power-outage-analysis
 
-test
+Testing the minima theme
