@@ -117,41 +117,43 @@ height='600'
 frameborder='0'
 ></iframe>
 
-<div style='display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;'>
+<div style="max-width: 1200px; margin: auto;">
+<div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;'>
 <iframe
 src="assets/anomaly_customers_affected.html"
-width = '800'
-height='600'
+width = '100%'
+height='400'
 frameborder='0'
 ></iframe>
 
 <iframe
 src="assets/GDP_state_customers_affected.html"
-width = '800'
-height='600'
+width = '100%'
+height='400'
 frameborder='0'
 ></iframe>
 
 <iframe
 src="assets/util_GSP_customers_affected.html"
-width = '800'
-height='600'
+width = '100%'
+height='400'
 frameborder='0'
 ></iframe>
 
 <iframe
 src="assets/urban_customers_affected.html"
-width = '800'
-height='600'
+width = '100%'
+height='400'
 frameborder='0'
 ></iframe>
 
 <iframe
 src="assets/water_customers_affected.html"
-width = '800'
-height='600'
+width = '100%'
+height='400'
 frameborder='0'
 ></iframe>
+</div>
 </div>
 
 ## Framing a Prediction Problem
