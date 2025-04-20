@@ -103,6 +103,9 @@ Lastly, the above histogram shows the binned distribution of outages by their du
 Each of these visualizations helped us to contextualize the data we were provided by gaining an understanding of the distribution of outage severities. 
 
 ### Bivariate Analysis
+
+We then conducted a variety of bivariate analyses in an attempt to identify possible associations between features in our dataset, especially with our primary response variable '`CUSTOMERS.AFFECTED`' to help us eventually motivate the features on which our predictive models would be trained.
+
 <iframe
 src="assets/cause_vs_customers_affected.html"
 width = '800'
@@ -110,12 +113,16 @@ height='600'
 frameborder='0'
 ></iframe>
 
+The above stacked box plot shows the distributions of the number of customers affected among outages with various causes. Each cause category had a slightly different distribution of customers affected, with severe weather outages having the highest median number of customers affected at roughly 110,433.
+
 <iframe
 src="assets/state_customers_affected.html"
 width = '800'
 height='600'
 frameborder='0'
 ></iframe>
+
+We then wanted to see if the geographical location of an outage had any impact on the number of customers affected, so we created the above choropleth chart which displays the mean '`CUSTOMERS.AFFECTED`' of all outages in the dataset for each U.S. state. It appeared that Florida, South Carolina, Texas, Illinois, and California had particularly high reach (number of customers affected) on average.
 
 <div style="max-width: 1200px; margin: auto;">
 <div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;'>
@@ -155,6 +162,71 @@ frameborder='0'
 ></iframe>
 </div>
 </div>
+
+We created numerous scatter plots to try and identify potential linear relationships between various numerical features (namely the '`ANOMALY.LEVEL`', '`PC.REALGSP.REL`', '`UTIL.REALGSP`', '`POPPCT_URBAN`', and '`PCT_WATER_TOT`') and the number of customers affected. Although '`POPPCT_URBAN`' and '`PCT_WATER_TOT`' showed slight signs of a correlation (positive and negative, respectively) with '`CUSTOMERS.AFFECTED`', the majority of these plots revealed heavily skewed and clustered data which did not show strong signs of linear relationships between these features and our response variable.
+
+### Interesting Aggregates
+
+We were interested in further examining the trends in overall outage severity (which we characterized through the three variables of '`CUSTOMERS.AFFECTED`', '`OUTAGE.DURATION`', and '`DEMAND.LOSS.MW`') across different states, so we created the following grouped table which reports the mean of each of those three variables for each U.S. state in the dataset, sorted in descending order by mean '`CUSTOMERS.AFFECTED`'. The top 10 rows are shown below:
+
+| POSTAL.CODE   |   CUSTOMERS.AFFECTED |   OUTAGE.DURATION |   DEMAND.LOSS.MW |
+|:--------------|---------------------:|------------------:|-----------------:|
+| FL            |               303149 |          4084.19  |          846.921 |
+| SC            |               251913 |          3135     |         1699.71  |
+| TX            |               223232 |          2560.56  |          552.083 |
+| IL            |               207027 |          1602.45  |          214.222 |
+| CA            |               201366 |          1674.56  |          668.522 |
+| DC            |               194709 |          4303.6   |         1280     |
+| NY            |               190676 |          6034.96  |         1283.15  |
+| WV            |               179794 |          6979     |          362     |
+| PA            |               168537 |          3811.7   |          225.263 |
+| NM            |               166667 |           140.375 |          346.667 |
+
+The results of the first group table largely mirrored what was displayed earlier in the choropleth chart, so we wanted to dive deeper by grouping on both the U.S. state and cause category together and finding the average number of customers affected for each combination, as shown by the slice of the pivot table below. We were surprised to find that zero of the top 5 combinations came from states which were in the top 5 by overall average customers affected. Furthermore, it was interesting to see that 6 of the top 10 combinations were related to system operability disruptions in particular, which could suggest that utility companies in those states are not well equipped to handle and contain the impact of these sorts of disruptions. 
+
+| POSTAL.CODE   | CAUSE.CATEGORY                |   AVG.CUSTOMERS.AFFECTED |
+|:--------------|:------------------------------|-------------------------:|
+| NY            | system operability disruption |                1.081e+06 |
+| MI            | system operability disruption |           759738         |
+| OH            | system operability disruption |           613000         |
+| VA            | system operability disruption |           600000         |
+| NM            | system operability disruption |           500000         |
+| FL            | severe weather                |           444907         |
+| CA            | severe weather                |           361041         |
+| TX            | system operability disruption |           289696         |
+| TX            | severe weather                |           258094         |
+| SC            | severe weather                |           251913         |
+
+### Imputation
+
+| Column Name           |   Percent of Data Missing |
+|:----------------------|--------------------------:|
+| POSTAL.CODE           |                  0        |
+| NERC.REGION           |                  0        |
+| CLIMATE.REGION        |                  0.393185 |
+| ANOMALY.LEVEL         |                  0.589777 |
+| CLIMATE.CATEGORY      |                  0.589777 |
+| CAUSE.CATEGORY        |                  0        |
+| CAUSE.CATEGORY.DETAIL |                 30.6029   |
+| OUTAGE.DURATION       |                  3.80079  |
+| DEMAND.LOSS.MW        |                 45.8716   |
+| CUSTOMERS.AFFECTED    |                 28.637    |
+| TOTAL.PRICE           |                  1.44168  |
+| TOTAL.SALES           |                  1.44168  |
+| TOTAL.CUSTOMERS       |                  0        |
+| PC.REALGSP.REL        |                  0        |
+| UTIL.REALGSP          |                  0        |
+| PI.UTIL.OFUSA         |                  0        |
+| POPULATION            |                  0        |
+| POPPCT_URBAN          |                  0        |
+| POPDEN_UC             |                  0.655308 |
+| POPDEN_RURAL          |                  0.655308 |
+| PCT_WATER_TOT         |                  0        |
+| PCT_WATER_INLAND      |                  0        |
+| OUTAGE.START          |                  0.589777 |
+| OUTAGE.RESTORATION    |                  3.80079  |
+
+The above table is showing the percentage of null values in each of the 24 columns we kept in our cleaned dataset. Since the only columns with proportions of missing data that were non-negligible were columns that would either be unavailable at the time of prediction (and hence, better suited as response variables) or we had no intention of using to train our machine learning models, we did not feel it was necessary to impute any missing values.
 
 ## Framing a Prediction Problem
 
