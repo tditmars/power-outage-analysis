@@ -59,6 +59,27 @@ height='600'
 frameborder='0'
 ></iframe>
 
+<iframe
+src="assets/customers_affected_distribution.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
+<iframe
+src="assets/demand_loss_distribution.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
+<iframe
+src="assets/outage_duration_distribution.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
 ### Bivariate Analysis
 
 ## Framing a Prediction Problem
