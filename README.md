@@ -97,44 +97,44 @@ frameborder='0'
 
 <iframe
 src="assets/state_customers_affected.html"
-width = '800'
+width = '1000'
 height='800'
 frameborder='0'
 ></iframe>
 
-<div style='display: flex; gap: 20px; flex-wrap: wrap;'>
+<div style='display: flex; gap: 30px; flex-wrap: wrap;'>
 <iframe
 src="assets/anomaly_customers_affected.html"
-width = '400'
-height='400'
+width = '200'
+height='200'
 frameborder='0'
 ></iframe>
 
 <iframe
 src="assets/GDP_state_customers_affected.html"
-width = '400'
-height='400'
+width = '200'
+height='200'
 frameborder='0'
 ></iframe>
 
 <iframe
 src="assets/util_GSP_customers_affected.html"
-width = '400'
-height='400'
+width = '200'
+height='200'
 frameborder='0'
 ></iframe>
 
 <iframe
 src="assets/urban_customers_affected.html"
-width = '400'
-height='400'
+width = '200'
+height='200'
 frameborder='0'
 ></iframe>
 
 <iframe
 src="assets/water_customers_affected.html"
-width = '400'
-height='400'
+width = '200'
+height='200'
 frameborder='0'
 ></iframe>
 </div>
