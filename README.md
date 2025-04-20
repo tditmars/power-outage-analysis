@@ -59,12 +59,19 @@ Lastly, we dropped all duplicate rows and were left with a cleaned dataset, the 
 | MN            | MRO           | East North Central |             1.2 | warm               | severe weather     | nan                     |              1740 |              250 |               250000 |         10.43 |   5.97034e+06 |       2.67353e+06 |          1.09203 |           4873 |             2.2 |  5.48959e+06 |          73.27 |      1700.5 |           18.2 |         8.40733 |            5.47874 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
 
 ### Univariate Analysis
+
+We began our exploratory data analysis by examining the distributions of various single columns through visualizations made with `plotly`.
+
 <iframe
 src="assets/cause_category_distribution.html"
 width = '800'
 height='600'
 frameborder='0'
 ></iframe>
+
+We first created the above histogram of the counts of outages in the dataset labeled with various cause categories. The key takeaway from this visual was that severe weather and intentional attacks were by far the most common causes of the power outages documented in our dataset.
+
+Once we had gotten a sense of the most frequent causes of the outages in our dataset, we wanted to get a sense of the relevant scale and severity of the outages. We identified three potential response variables of interest- '`CUSTOMERS.AFFECTED`', '`DEMAND.LOSS.MW`', and '`OUTAGE.DURATION`'- which we thought characterized the impact of an outage.
 
 <iframe
 src="assets/customers_affected_distribution.html"
@@ -73,6 +80,8 @@ height='600'
 frameborder='0'
 ></iframe>
 
+The histogram above shows the binned distribution of outages by the number of customers affected in each outage. The median value for '`CUSTOMERS.AFFECTED`' was around 70,000, and the 75th percentile was around 150,000.
+
 <iframe
 src="assets/demand_loss_distribution.html"
 width = '800'
@@ -80,12 +89,18 @@ height='600'
 frameborder='0'
 ></iframe>
 
+Similarly, the above histogram shows the binned distribution of outages by their reported demand loss (in Megawatts). The median value for '`DEMAND.LOSS.MW`' was 168.00 and the 75th percentile was 399.75.
+
 <iframe
 src="assets/outage_duration_distribution.html"
 width = '800'
 height='600'
 frameborder='0'
 ></iframe>
+
+Lastly, the above histogram shows the binned distribution of outages by their durations (in minutes). The median outage duration was 691 minutes (just over 11.5 hours), and the 75th percentile was 2880 minutes (2 days).
+
+Each of these visualizations helped us to contextualize the data we were provided by gaining an understanding of the distribution of outage severities. 
 
 ### Bivariate Analysis
 <iframe
