@@ -103,14 +103,14 @@ frameborder='0'
 ></iframe>
 
 <iframe
-src="assets/anomaly_level_vs_customers_affected.html"
+src="assets/anomaly_vs_customers_affected.html"
 width = '800'
 height='600'
 frameborder='0'
 ></iframe>
 
 <iframe
-src="assets/GDP_vs_customers_affected.html"
+src="assets/GDP_state_customers_affected.html"
 width = '800'
 height='600'
 frameborder='0'
@@ -118,21 +118,21 @@ frameborder='0'
 
 
 <iframe
-src="assets/util_GDP_vs_customers_affected.html"
+src="assets/util_GSP_customers_affected.html"
 width = '800'
 height='600'
 frameborder='0'
 ></iframe>
 
 <iframe
-src="assets/urban_percent_vs_customers_affected.html"
+src="assets/urban_customers_affected.html"
 width = '800'
 height='600'
 frameborder='0'
 ></iframe>
 
 <iframe
-src="assets/water_vs_customers_affected.html"
+src="assets/water_customers_affected.html"
 width = '800'
 height='600'
 frameborder='0'
