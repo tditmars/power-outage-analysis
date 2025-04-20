@@ -3,15 +3,15 @@
 By Tyler Ditmars (tditmars@umich.edu) and Neha Pinnu (npinnu@umich.edu)
 
 ## Introduction
-This dataset was obtained by Purdue University's Laboratory for Advancing Sustainable Critical Infrastructure and contains information about major outages that were witnessed by different U.S. States in the continental U.S. between January 2000 and July 2016. Alongside information about different outages, this dataset also contains the geographical location of the outage, the regional climate information, land-use characteristics, electricity consumption patterns, and economic characteristics of states that were affected by outages.
+The dataset used in this report was collected by Purdue University's Laboratory for Advancing Sustainable Critical Infrastructure and contains information about major power outages that occurred across various U.S. States in the continental U.S. between January 2000 and July 2016. Alongside information about the outages themselves, this dataset also contains the geographical location of the outage, regional climate information, land-use characteristics, electricity consumption patterns, and economic characteristics of the states that were affected.
 
-After looking through the data and getting a better understaning of what sort of data that was collected, we decided to research the question:
+After looking through the dataset and getting a better understanding of what sort of data it contained, we decided to center our research around the following question:
 
 >**What are the common characteristics of severe power outages, and can those characteristics be used to predict the number of customers affected by a future power outage?**
 
-The information we are analyzing through this data analysis will give us a better understanding on how different factors can impact the range and severity of a power outage, which could potentailly allow electric companies to prepare better for the extent of an outage when it does occur.
+Our analysis throughout this report will help us gain a better understanding of how different factors can impact the severity and reach of a power outage, which could potentially allow utility providers to better estimate and prepare for the extent of an outage when it does occur.
 
-This dataset originally contained contains 1535 rows and 57 columns. We narrowed it down to 24 relavent columns below that we believe are potential factors that could have correlation with the number of customers affected. 
+This dataset originally contained contained 1535 rows and 57 columns. We narrowed it down to 24 relevant columns (shown below) that we consider potential factors that could be correlated with the number of customers affected by a given outage. The column descriptions in the table below are all sourced directly from the [data dictionary](https://www.sciencedirect.com/science/article/pii/S2352340918307182) provided with the dataset.
 
 | Column Name in Outages Dataset | Description of Column |
 |--------|--------------|
@@ -41,12 +41,13 @@ This dataset originally contained contains 1535 rows and 57 columns. We narrowed
 | OUTAGE.RESTORATION | DateTime object that indicates the day and time when power was restored to all the customers (as reported by the corresponding Utility in the region) |
 
 ## Data Cleaning and Exploratory Data Analysis
-The first step we did was remove the first two columns in the dataset: 'variable' and 'OBS.' The 'variable' column only contained NaN values, and the 'OBS' column was just another index column that we didn't need.
+After downloading the raw dataset, our data cleaning process began by trimming off the first few rows of the file which served as a file description as well as removing the first two columns of the dataset: 'variable' and 'OBS'. The 'variable' column did not contain any actual data and 'OBS' was an index column provided for us which we chose not to use. We also removed a row of the file which denoted the units for each column.
 
-The next aspect of our data cleaning was combining 'OUTAGE.START.DATE' and 'OUTAGE.START.TIME' into OUTAGE.START. Similarly, we also combined 'OUTAGE.RESTORATION.DATE' and 'OUTAGE.RESTORATION.TIME' into OUTAGE.RESTORATION. We dropped the original four columns in order to avoid multicollinearity.
+Next, we dropped all columns not listed in the table above which we felt would not be especially relevant to our research question or repeated similar data in a different fashion than another remaining column in the dataset, which we feared might introduce multicollinearity. With the remaining columns, we then converted all known numeric columns into the appropriate `dtypes`, since each column was loaded as `object` by default. 
 
-We decided to only keep the 27 Columns listed above, because we felt that the other columns were either repeating similar data, or weren't relavent to analysis the sevarity and customers affected of an outage.
+After this, we combined 'OUTAGE.START.DATE' and 'OUTAGE.START.TIME' into one `pd.Timestamp` column, OUTAGE.START. Similarly, we also combined 'OUTAGE.RESTORATION.DATE' and 'OUTAGE.RESTORATION.TIME' into OUTAGE.RESTORATION. We then dropped the original four columns in order to avoid introducing multicollinearity.
 
+Lastly, we dropped all duplicate rows and were left with a cleaned dataset that looked like the following:
 
 ### Data Cleaning
 
