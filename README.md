@@ -41,11 +41,11 @@ This dataset originally contained contained 1535 rows and 57 columns. We narrowe
 | OUTAGE.RESTORATION | DateTime object that indicates the day and time when power was restored to all the customers (as reported by the corresponding Utility in the region) |
 
 ## Data Cleaning and Exploratory Data Analysis
-After downloading the raw dataset, our data cleaning process began by trimming off the first few rows of the file which served as a file description as well as removing the first two columns of the dataset: 'variable' and 'OBS'. The 'variable' column did not contain any actual data and 'OBS' was an index column provided for us which we chose not to use. We also removed a row of the file which denoted the units for each column.
+After downloading the raw dataset, our data cleaning process began by trimming off the first few rows of the file which served as a file description as well as removing the first two columns of the dataset: '`variable`' and '`OBS`'. The '`variable`' column did not contain any actual data and '`OBS`' was an index column provided for us which we chose not to use. We also removed a row of the file which denoted the units for each column.
 
 Next, we dropped all columns not listed in the table above which we felt would not be especially relevant to our research question or repeated similar data in a different fashion than another remaining column in the dataset, which we feared might introduce multicollinearity. With the remaining columns, we then converted all known numeric columns into the appropriate `dtypes`, since each column was loaded as `object` by default. 
 
-After this, we combined 'OUTAGE.START.DATE' and 'OUTAGE.START.TIME' into one `pd.Timestamp` column, OUTAGE.START. Similarly, we also combined 'OUTAGE.RESTORATION.DATE' and 'OUTAGE.RESTORATION.TIME' into OUTAGE.RESTORATION. We then dropped the original four columns in order to avoid introducing multicollinearity.
+After this, we combined '`OUTAGE.START.DATE`' and '`OUTAGE.START.TIME`' into one `pd.Timestamp` column, '`OUTAGE.START`'. Similarly, we also combined '`OUTAGE.RESTORATION.DATE`' and '`OUTAGE.RESTORATION.TIME`' into '`OUTAGE.RESTORATION`'. We then dropped the original four columns in order to avoid introducing multicollinearity.
 
 Lastly, we dropped all duplicate rows and were left with a cleaned dataset that looked like the following:
 
