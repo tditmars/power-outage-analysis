@@ -52,6 +52,12 @@ Lastly, we dropped all duplicate rows and were left with a cleaned dataset that 
 ### Data Cleaning
 
 ### Univariate Analysis
+<iframe
+src="assets/cause_category_distribution.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
 
 ### Bivariate Analysis
 
