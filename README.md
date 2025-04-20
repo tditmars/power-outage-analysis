@@ -97,11 +97,12 @@ frameborder='0'
 
 <iframe
 src="assets/state_customers_affected.html"
-width = '800'
-height='600'
+width = '80%'
+height='800'
 frameborder='0'
 ></iframe>
 
+<div style='display: flex; gap: 20px; flex-wrap: wrap;'>
 <iframe
 src="assets/anomaly_customers_affected.html"
 width = '800'
@@ -115,7 +116,6 @@ width = '800'
 height='600'
 frameborder='0'
 ></iframe>
-
 
 <iframe
 src="assets/util_GSP_customers_affected.html"
@@ -137,6 +137,7 @@ width = '800'
 height='600'
 frameborder='0'
 ></iframe>
+</div>
 
 ## Framing a Prediction Problem
 
