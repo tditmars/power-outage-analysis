@@ -103,7 +103,7 @@ frameborder='0'
 ></iframe>
 
 <iframe
-src="assets/anomaly_vs_customers_affected.html"
+src="assets/anomaly_customers_affected.html"
 width = '800'
 height='600'
 frameborder='0'
