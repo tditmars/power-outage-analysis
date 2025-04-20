@@ -81,6 +81,55 @@ frameborder='0'
 ></iframe>
 
 ### Bivariate Analysis
+<iframe
+src="assets/cause_vs_customers_affected.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
+<iframe
+src="assets/state_customers_affected.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
+<iframe
+src="assets/anomaly_level_vs_customers_affected.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
+<iframe
+src="assets/GDP_vs_customers_affected.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
+
+<iframe
+src="assets/util_GDP_vs_customers_affected.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
+<iframe
+src="assets/urban_percent_vs_customers_affected.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
+
+<iframe
+src="assets/water_vs_customers_affected.html"
+width = '800'
+height='600'
+frameborder='0'
+></iframe>
 
 ## Framing a Prediction Problem
 
