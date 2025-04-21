@@ -33,7 +33,7 @@ This dataset originally contained contained 1535 rows and 57 columns. We narrowe
 | `PI.UTIL.OFUSA` | State utility sector׳s income (earnings) as a percentage of the total earnings of the U.S. utility sector׳s income (in %) |
 | `POPULATION`| Population in the U.S. state in a year |
 | `POPPCT_URBAN` | Percentage of the total population of the U.S. state represented by the urban population (in %) |
-| POPDEN_UC | Population density of the urban clusters (persons per square mile) |
+| `POPDEN_UC` | Population density of the urban clusters (persons per square mile) |
 | `POPDEN_RURAL` | Population density of the rural areas (persons per square mile) |
 | `PCT_WATER_TOT` | Percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. (in %) |
 | `PCT_WATER_INLAND` | Percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %) |
