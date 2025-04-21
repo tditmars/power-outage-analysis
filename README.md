@@ -297,7 +297,7 @@ In an attempt to improve upon the performance of our baseline model, we engineer
 
 ### Additional Feature Engineering
 
-We implemented a preprocessing sklearn `ColumnTransformer` which performs a number of transformations on both the features that were included in our baseline model as well as a few additional relevant features that we wanted to introduce to our improved model. This preprocessing pipeline became a sub-step of all of our subsequent regression models which were each implemented as their own sklearn `Pipeline`. All of the chosen features and there corresponding transformations are as follows:
+We implemented a preprocessing sklearn `ColumnTransformer` which performs a number of transformations on both the features that were included in our baseline model as well as a few additional relevant features that we wanted to introduce to our improved model. This preprocessing pipeline became a sub-step of all of our subsequent regression models which were each implemented as their own sklearn `Pipeline`. All of the chosen features and their corresponding transformations are as follows:
 
 **Retained Features from the Baseline Model:**
 
@@ -328,7 +328,7 @@ We implemented a preprocessing sklearn `ColumnTransformer` which performs a numb
 Each of the 5 modeling algorithms we tried had its own associated hyperparameters to tune. When tuning the hyperparamters, we used `GridSearchCV` to perform 5-fold cross validation scored using `'neg_mean_absolute_error'` to find the hyperparameter values which would yield the best result in terms of our evaluation metric, MAE. The hyperparameters we decided to tune are as follows:
 
 1. **Linear Regression:** None
-    - We want to compare the performance of our baseline model to another multiple Linear Regression model where the only change is the inclusion of our engineered features
+    - We want to compare the performance of our baseline model to another multiple Linear Regression model where the only change is the introduction of our engineered features
 2. **Ridge Regression:** Alpha (λ)
     - The alpha hyperparameter in Ridge Regression adds a penalization factor for large coefficients, potentially leading to less overfitting. Since the out-of-sample performance of our baseline model was not great, we wanted to try to tune this hyperparamter to see if we could reduce the overfitting effect and achieve better performance on unseen data
     - **Values Tried:** 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000
@@ -359,9 +359,9 @@ Ultimately, we chose the Random Forest Regressor to be our final model because o
 
 ### Performance and Conclusion
 
-Below is a table of the Mean Absolute Error (MAE) of our final Random Forest Regression model as well as the MAE values of the other 4 models that we explored for reference. 
+Below is a table of the Mean Absolute Error (MAE) of our final Random Forest Regression model as well as the MAE values of the other 4 models that we explored for reference: 
 
-| Model | MAE |
+| Model | Mean Absolute Error (MAE) |
 |---|---|
 |**Random Forest Regression**| **109,962.48** |
 |Linear Regression|122,845.58|
