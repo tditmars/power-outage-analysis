@@ -172,31 +172,31 @@ We were interested in further examining the trends in overall outage severity (w
 
 | POSTAL.CODE   |   CUSTOMERS.AFFECTED |   OUTAGE.DURATION |   DEMAND.LOSS.MW |
 |:--------------|---------------------:|------------------:|-----------------:|
-| FL            |               303149 |          4084.19  |          846.92 |
-| SC            |               251913 |          3135     |         1699.71  |
-| TX            |               223232 |          2560.56  |          552.08 |
-| IL            |               207027 |          1602.45  |          214.22 |
-| CA            |               201366 |          1674.56  |          668.52 |
-| DC            |               194709 |          4303.6   |         1280     |
-| NY            |               190676 |          6034.96  |         1283.15  |
-| WV            |               179794 |          6979     |          362     |
-| PA            |               168537 |          3811.7   |          225.26 |
-| NM            |               166667 |           140.38 |          346.67 |
+| FL            |               303,149 |          4,084.19  |      846.92    |
+| SC            |               251,913 |          3,135     |      1,699.71  |
+| TX            |               223,232 |          2,560.56  |      552.08    |
+| IL            |               207,027 |          1,602.45  |      214.22    |
+| CA            |               201,366 |          1,674.56  |      668.52    |
+| DC            |               194,709 |          4,303.6   |      1,280     |
+| NY            |               190,676 |          6,034.96  |      1,283.15  |
+| WV            |               179,794 |          6,979     |      362       |
+| PA            |               168,537 |          3,811.7   |      225.26    |
+| NM            |               166,667 |          140.38    |      346.67    |
 
 The results of the first group table largely mirrored what was displayed earlier in the choropleth chart, so we wanted to dive deeper by grouping on both the U.S. state and cause category together and finding the average number of customers affected for each combination, as shown by the slice of the pivot table below. We were surprised to find that zero of the top 5 combinations came from states which were in the top 5 by overall average customers affected. Furthermore, it was interesting to see that 6 of the top 10 combinations were related to system operability disruptions in particular, which could suggest that utility companies in those states are not well equipped to handle and contain the impact of these sorts of disruptions. 
 
 | POSTAL.CODE   | CAUSE.CATEGORY                |   AVG.CUSTOMERS.AFFECTED |
 |:--------------|:------------------------------|-------------------------:|
-| NY            | system operability disruption |           1081000        |
-| MI            | system operability disruption |           759738         |
-| OH            | system operability disruption |           613000         |
-| VA            | system operability disruption |           600000         |
-| NM            | system operability disruption |           500000         |
-| FL            | severe weather                |           444907         |
-| CA            | severe weather                |           361041         |
-| TX            | system operability disruption |           289696         |
-| TX            | severe weather                |           258094         |
-| SC            | severe weather                |           251913         |
+| NY            | system operability disruption |           1,081,000        |
+| MI            | system operability disruption |           759,738         |
+| OH            | system operability disruption |           613,000         |
+| VA            | system operability disruption |           600,000         |
+| NM            | system operability disruption |           500,000         |
+| FL            | severe weather                |           444,907         |
+| CA            | severe weather                |           361,041         |
+| TX            | system operability disruption |           289,696         |
+| TX            | severe weather                |           258,094         |
+| SC            | severe weather                |           251,913         |
 
 ### Imputation
 
@@ -204,28 +204,28 @@ The table below shows the percentage of null values in each of the 24 columns we
 
 | Column Name           |   Percent of Data Missing |
 |:----------------------|--------------------------:|
-| `POSTAL.CODE `          |                  0%     |
-| `NERC.REGION`           |                  0%     |
+| `POSTAL.CODE `          |                  0.00%  |
+| `NERC.REGION`           |                  0.00%  |
 | `CLIMATE.REGION`        |                  0.39%  |
 | `ANOMALY.LEVEL`         |                  0.59%  |
 | `CLIMATE.CATEGORY`      |                  0.59%  |
-| `CAUSE.CATEGORY`        |                  0%     |
+| `CAUSE.CATEGORY`        |                  0.00%  |
 | `CAUSE.CATEGORY.DETAIL` |                  30.60% |
 | `OUTAGE.DURATION`       |                  3.80%  |
 | `DEMAND.LOSS.MW`        |                  45.87% |
 | `CUSTOMERS.AFFECTED`    |                  28.64% |
 | `TOTAL.PRICE`           |                  1.44%  |
 | `TOTAL.SALES`           |                  1.44%  |
-| `TOTAL.CUSTOMERS`       |                  0%     |
-| `PC.REALGSP.REL`        |                  0%     |
-| `UTIL.REALGSP`          |                  0%     |
-| `PI.UTIL.OFUSA`         |                  0%     |
-| `POPULATION`            |                  0%     |
-| `POPPCT_URBAN`          |                  0%     |
+| `TOTAL.CUSTOMERS`       |                  0.00%  |
+| `PC.REALGSP.REL`        |                  0.00%  |
+| `UTIL.REALGSP`          |                  0.00%  |
+| `PI.UTIL.OFUSA`         |                  0.00%  |
+| `POPULATION`            |                  0.00%  |
+| `POPPCT_URBAN`          |                  0.00%  |
 | `POPDEN_UC`             |                  0.66%  |
 | `POPDEN_RURAL`          |                  0.66%  |
-| `PCT_WATER_TOT`         |                  0%     |
-| `PCT_WATER_INLAND`      |                  0%     |
+| `PCT_WATER_TOT`         |                  0.00%  |
+| `PCT_WATER_INLAND`      |                  0.00%  |
 | `OUTAGE.START`          |                  0.59%  |
 | `OUTAGE.RESTORATION`    |                  3.80%  |
 
