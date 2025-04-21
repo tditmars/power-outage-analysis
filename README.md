@@ -107,7 +107,7 @@ Each of these visualizations helped us to contextualize the data we were provide
 We then conducted a variety of bivariate analyses in an attempt to identify possible associations between features in our dataset, especially with our primary response variable '`CUSTOMERS.AFFECTED`' to help us eventually motivate the features on which our predictive models would be trained.
 
 <iframe
-src="assets/cause_vs_customers_affected.html"
+src="assets/new_cause_customers_affected.html"
 width = '800'
 height='600'
 frameborder='0'
