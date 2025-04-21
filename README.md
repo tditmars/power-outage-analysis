@@ -90,23 +90,17 @@ frameborder='0'
 ></iframe>
 
 Similarly, the above histogram shows the binned distribution of outages by their reported demand loss (in Megawatts). The median value for '`DEMAND.LOSS.MW`' was 168.00 and the 75th percentile was 399.75.
-
-<!-- <iframe
-src="assets/outage_duration_distribution.html"
-width = '800'
-height='600'
-frameborder='0'
-></iframe> -->
-
-<div style="margin: 0; padding: 0; line-height: 0;">
-  <iframe
-    src="assets/outage_duration_distribution.html"
-    width="800"
-    height="600"
-    frameborder="0"
-    style="margin: 0; padding: 0; display: block;">
-  </iframe>
-</div>
+<ul>
+    <li>
+        <iframe
+        src="assets/outage_duration_distribution.html"
+        width = '800'
+        height='600'
+        frameborder='0'
+        style='margin-left: 10px;'
+        ></iframe>
+    </li>
+</ul>
 
 Lastly, the above histogram shows the binned distribution of outages by their durations (in minutes). The median outage duration was 691 minutes (just over 11.5 hours), and the 75th percentile was 2880 minutes (2 days).
 
