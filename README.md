@@ -292,3 +292,85 @@ As reported above, the Mean Absolute Error of our baseline model was quite high,
 During our earlier bivariate analysis, we did struggle to find convincing linear relationships between various features and our response variable, which could partially explain why our multiple linear regression model is struggling to accurately capture the variance in the number of customers affected as it relates to the features we are training on. As we iterate upon our model, we will introduce more creative feature engineering and try out some non-linear models to see if we can better capture potentially non-linear relationships between our features and the value we are trying to predict.
 
 ## Final Model
+
+In an attempt to improve upon the performance of our baseline model, we engineered numerous additional features and implemented 5 different modeling algorithms (specifically Multiple Linear Regression, Ridge Regression, LASSO Regression, K-Nearest Neighbors Regression, and Random Forest Regression) as we iterated towards a final model.
+
+### Additional Feature Engineering
+
+We implemented a preprocessing sklearn `ColumnTransformer` which performs a number of transformations on both the features that were included in our baseline model as well as a few additional relevant features that we wanted to introduce to our improved model. This preprocessing pipeline became a sub-step of all of our subsequent regression models which were each implemented as their own sklearn `Pipeline`. All of the chosen features and there corresponding transformations are as follows:
+
+**Retained Features from the Baseline Model:**
+
+1. `POSTAL.CODE`: 2-character code for the state where the outage occurs
+    - **Type:** Nominal Categorical
+    - **Encoding:** One-hot encoded using sklearn's `OneHotEncoder` **(no change from the baseline model)**
+2. `CAUSE.CATEGORY`: Category for the type of event that caused the outage
+    - **Type:** Nominal Categorical
+    - **Encoding:** One-hot encoded using sklearn's `OneHotEncoder` **(no change from the baseline model)**
+3. `POPPCT_URBAN`: Percentage of the total population of the state represented by the urban population
+    - **Type:** Quantitative
+    - **Encoding:** Reshaped to fit a standard normal distribution using sklearn's `QuantileTransformer`. We believed this transformation would improve our model's performance because this feature's values appeared heavily skewed when plotting them during our EDA, which could be corrected by the `QuantileTransformer`.
+
+**New Features Added:**
+
+1. `ANOMALY.LEVEL`: ONI index value referring to cold and warm episodes
+    - **Type:** Quantitative
+    - **Encoding:** Created degree 3 polynomial features using sklearn's `PolynomialFeatures`. We thought that introducing this feature would be relevant to our predictions both semantically because we figured the weather may have an impact on the severity of outage events, but also because we noticed a pattern (a normal-looking distribution) between this feature and our response variable during EDA. However, because the pattern we observed was non-linear, we decided to try introducing polynomial features.
+2. `PCT_WATER_TOT`: Percentage of water area in the U.S. state as compared to the overall water area in the continental U.S.
+    - **Type:** Quantitative
+    - **Encoding:** Mapped this feature to a binary variable using a `FunctionTransformer`. Empirically, during EDA, we saw that it was rare for outages to affect more than 1 million customers when `PCT_WATER_TOT` was above 15%, so we mapped all values less than 0.15 in this column to 1 and all others to 0. Again, we thought that this might help our final model to capture a non-linear aspect of the relationship between this feature and our response variable when making predictions.
+3. `TOTAL.CUSTOMERS`: Annual number of total customers served in the U.S. state where the outage occurs
+    - **Type:** Quantitative
+    - **Encoding:** Standardized using sklearn's `StandardScaler`. While standardization would not impact the predictions of a linear model, we did implement a KNN-based regression model which relies on distances to make predictions. The predictions of this model in particular could be skewed by an imbalance in the scale of features, so since we were reusing our preprocessed features across all 5 of our models, we made sure to standardize `TOTAL.CUSTOMERS`.
+
+### Hyperparameter Tuning
+
+Each of the 5 modeling algorithms we tried had its own associated hyperparameters to tune. When tuning the hyperparamters, we used `GridSearchCV` to perform 5-fold cross validation scored using `'neg_mean_absolute_error'` to find the hyperparameter values which would yield the best result in terms of our evaluation metric, MAE. The hyperparameters we decided to tune are as follows:
+
+1. **Linear Regression:** None
+    - We want to compare the performance of our baseline model to another multiple Linear Regression model where the only change is the inclusion of our engineered features
+2. **Ridge Regression:** Alpha ($\lambda$)
+    - The alpha hyperparameter in Ridge Regression adds a penalization factor for large coefficients, potentially leading to less overfitting. Since the out-of-sample performance of our baseline model was not great, we wanted to try to tune this hyperparamter to see if we could reduce the overfitting effect and achieve better performance on unseen data
+    - **Values Tried:** 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000
+    - **Best Performing Value:** 0.01
+3. **LASSO Regression:** Alpha ($\lambda$)
+    - Alpha in LASSO Regression serves a similar purpose to the hyperparameter in Ridge Regression, however it works to minimize the $L_1$ norm rather than the $L_2$ norm of $\vec w$. Again, we want to attempt to tune this hyperparameter to hopefully limit the overfitting of our final model
+    - **Values Tried:** 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000
+    - **Best Performing Value:** 0.01
+4. **KNN:** Number of Neighbors (k)
+    - For our KNN regressor, we will attempt to tune k, the number of neighbors looked at when predicting the value of our response variable. Again, this helps to tune the complexity of our model
+    - **Values Tried:** 5 through 30
+    - **Best Performing Value:** 5
+5. **Random Forest Regression:** Number of Estimators, Max Depth, and Minimum Samples per Leaf Node
+    - Changing the number of estimators (i.e. the number of trees in our random forest) will allow us to trade-off between training time / computation and the variance of our model, as more estimators will force the predictions to average out to perhaps more consistent results
+    - Both max depth and the minimum number of samples per leaf node are additional hyperparameters that will allow us to tune the complexity of our random forest model, again in hopes of reducing the overfitting effect
+    - **Values Tried:**
+        - Number of Estimators: 100, 200, 300
+        - Max Depth: 5, 10, 15, 20
+        - Minimum Samples per Leaf: 2, 4, 8
+    - **Best Performing Value:**
+        - Number of Estimators: 100
+        - Max Depth: 5
+        - Minimum Samples per Leaf: 2
+
+### Chosen Modeling Algorithm
+
+Ultimately, we chose the Random Forest Regressor to be our final model because of its unique ability to capture non-linear relationships when compared to the other regression models that we were exploring. Given the lack of clear linear relationships between the features we were training on and our response variable, we hoped that by transitioning to a model that is better able to capture non-linear relationships we would see a large improvement in performance over our baseline multiple linear regression model.
+
+### Performance and Conclusion
+
+Below is a table of the Mean Absolute Error (MAE) of our final Random Forest Regression model as well as the MAE values of the other 4 models that we explored for reference. 
+
+| Model | MAE |
+|---|---|
+|**Random Forest Regression**| **109,962.48** |
+|Linear Regression|122,845.58|
+|Ridge Regression|122,713.30|
+|Lasso Regression|122,796.41|
+|KNN Regression|121,449.32|
+
+As we can see, each of the models we implemented after our additional feature engineering achieved lower Mean Absolute Error than that of our baseline model (123,116.23), which suggests that we were indeed able to find transformations of our input features which allowed our machine learning models to better capture the underlying relationships between those features and `CUSTOMERS.AFFECTED`.
+
+Most importantly, we saw our final Random Forest Regression model achieve an MAE of 109,962.48, which is roughly a 10.7% improvement over the predictive ability of our baseline model when presented with unseen data. 
+
+Ultimately, the improvement we saw in our evaluation metric tells us that we were able to engineer a more robust and accurate model than our baseline for predicting the number of customers affected by power outages. However, our final MAE is still quite large relative to the scale of a typical outage, so there remains room for further research and improvement. 
