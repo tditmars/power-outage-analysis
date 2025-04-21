@@ -74,7 +74,7 @@ style="margin: 0px;"
 
 We first created the above histogram of the counts of outages in the dataset labeled with various cause categories. The key takeaway from this visual was that severe weather and intentional attacks were by far the most common causes of the power outages documented in our dataset.
 
-Once we had gotten a sense of the most frequent causes of the outages in our dataset, we wanted to get a sense of the relevant scale and severity of the outages. We identified three potential response variables of interest- '`CUSTOMERS.AFFECTED`', '`DEMAND.LOSS.MW`', and '`OUTAGE.DURATION`'- which we thought characterized the impact of an outage.
+Once we had gotten a sense of the most frequent causes of the outages in our dataset, we wanted to get a sense of the relative scale and severity of the outages. We identified three potential response variables of interest– '`CUSTOMERS.AFFECTED`', '`DEMAND.LOSS.MW`', and '`OUTAGE.DURATION`'– which we thought characterized the impact of an outage.
 
 <iframe
 src="assets/customers_affected_distribution.html"
@@ -103,7 +103,7 @@ frameborder='0'
 
 Lastly, the above histogram shows the binned distribution of outages by their durations (in minutes). The median outage duration was 691 minutes (just over 11.5 hours), and the 75th percentile was 2880 minutes (2 days).
 
-Each of these visualizations helped us to contextualize the data we were provided by gaining an understanding of the distribution of outage severities. 
+Each of these visualizations helped us to contextualize the data we were provided by gaining an understanding of the distribution of outage severities. In most cases, the distributions of values for these features were skewed towards the lower end of their respective scales.
 
 ### Bivariate Analysis
 
@@ -187,7 +187,7 @@ We were interested in further examining the trends in overall outage severity (w
 | PA            |               168,537 |          3,811.7   |      225.26    |
 | NM            |               166,667 |          140.38    |      346.67    |
 
-The results of the first group table largely mirrored what was displayed earlier in the choropleth chart, so we wanted to dive deeper by grouping on both the U.S. state and cause category together and finding the average number of customers affected for each combination, as shown by the slice of the pivot table below. We were surprised to find that zero of the top 5 combinations came from states which were in the top 5 by overall average customers affected. Furthermore, it was interesting to see that 6 of the top 10 combinations were related to system operability disruptions in particular, which could suggest that utility companies in those states are not well equipped to handle and contain the impact of these sorts of disruptions. 
+The results of the grouped table largely mirrored what was displayed earlier in the choropleth chart, so we wanted to dive deeper by grouping on both the U.S. state and cause category together and finding the average number of customers affected for each combination, as shown by the pivot table below. We were surprised to find that zero of the top 5 combinations came from states which were in the top 5 by overall average customers affected. Furthermore, it was interesting to see that 6 of the top 10 combinations were related to system operability disruptions in particular, which could suggest that utility companies in those states are not well equipped to handle and contain the impact of these sorts of disruptions. 
 
 | POSTAL.CODE   | CAUSE.CATEGORY                |   AVG.CUSTOMERS.AFFECTED |
 |:--------------|:------------------------------|-------------------------:|
