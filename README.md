@@ -67,6 +67,7 @@ src="assets/cause_distribution.html"
 width = 800
 height= 600
 frameborder='0'
+style='margin: 0px; padding: 0px'
 ></iframe>
 
 We first created the above histogram of the counts of outages in the dataset labeled with various cause categories. The key takeaway from this visual was that severe weather and intentional attacks were by far the most common causes of the power outages documented in our dataset.
@@ -96,7 +97,6 @@ src="assets/outage_duration_distribution.html"
 width = '800'
 height='600'
 frameborder='0'
-style='margin-left: 10px;'
 ></iframe>
 
 Lastly, the above histogram shows the binned distribution of outages by their durations (in minutes). The median outage duration was 691 minutes (just over 11.5 hours), and the 75th percentile was 2880 minutes (2 days).
@@ -127,6 +127,7 @@ We then wanted to see if the geographical location of an outage had any impact o
 
 <div style="max-width: 1200px; margin: auto;">
 <div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;'>
+
 <iframe
 src="assets/anomaly_customers_affected.html"
 width = '100%'
@@ -161,6 +162,7 @@ width = '100%'
 height='400'
 frameborder='0'
 ></iframe>
+
 </div>
 </div>
 
