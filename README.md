@@ -67,7 +67,7 @@ src="assets/cause_distribution.html"
 width = 800
 height= 600
 frameborder='0'
-style="margin: 0px; padding: 0px;"
+style="margin: 0px;"
 >
 
 </iframe>
