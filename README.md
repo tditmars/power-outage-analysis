@@ -263,4 +263,28 @@ During our EDA, we noticed the presence of many outlier outages which affected m
 
 ## Baseline Model
 
+### Model Description
+
+Our baseline model is a multiple linear regression model implemented using an sklearn `Pipeline` which is trained on one numerical and two categorical features to predict the number of customers affected ('`CUSTOMERS.AFFECTED`') by a power outage event.
+
+### Features
+
+1. `POSTAL.CODE`: 2-character code for the state where the outage occurs
+    - **Type:** Nominal Categorical
+    - **Encoding:** One-hot encoded using sklearn's `OneHotEncoder`
+2. `CAUSE.CATEGORY`: Category for the type of event that caused the outage
+    - **Type:** Nominal Categorical
+    - **Encoding:** One-hot encoded using sklearn's `OneHotEncoder`
+3. `POPPCT_URBAN`: Percentage of the total population of the state represented by the urban population
+    - **Type:** Quantitative
+    - **Encoding:** We did not perform any special encoding or transformation on this feature when training our baseline model
+
+### Performance
+
+**Mean Absolute Error (MAE):** 123,116.23
+
+As reported above, the Mean Absolute Error of our baseline model was quite high, just over 123,000. This means that the average deviation of our predictions from the actual number of customers affected by outages in our testing set was around 123,000 people, which is roughly 80% the size of a 75th-percentile outage. This amount of error in our model's predictions is certainly not satisfying, and therefore we believe there is much room to improve as we iterate towards our final model.
+
+During our earlier bivariate analysis, we did struggle to find convincing linear relationships between various features and our response variable, which could partially explain why our multiple linear regression model is struggling to accurately capture the variance in the number of customers affected as it relates to the features we are training on. As we iterate upon our model, we will introduce more creative feature engineering and try out some non-linear models to see if we can better capture potentially non-linear relationships between our features and the value we are trying to predict.
+
 ## Final Model
