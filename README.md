@@ -67,8 +67,10 @@ src="assets/cause_distribution.html"
 width = 800
 height= 600
 frameborder='0'
-style='margin: 0px; padding: 0px'
-></iframe>
+style="margin: 0px; padding: 0px;"
+>
+
+</iframe>
 
 We first created the above histogram of the counts of outages in the dataset labeled with various cause categories. The key takeaway from this visual was that severe weather and intentional attacks were by far the most common causes of the power outages documented in our dataset.
 
