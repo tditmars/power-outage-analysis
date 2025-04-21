@@ -63,7 +63,7 @@ Lastly, we dropped all duplicate rows and were left with a cleaned dataset, the 
 We began our exploratory data analysis by examining the distributions of various single columns through visualizations made with `plotly`.
 
 <iframe
-src="assets/cause_category_distribution.html"
+src="assets/cause_distribution.html"
 width = '800'
 height='600'
 frameborder='0'
