@@ -204,29 +204,29 @@ The table below shows the percentage of null values in each of the 24 columns we
 
 | Column Name           |   Percent of Data Missing |
 |:----------------------|--------------------------:|
-| `POSTAL.CODE `          |                  0%        |
-| `NERC.REGION`           |                  0%        |
-| `CLIMATE.REGION`        |                  0.39% |
-| `ANOMALY.LEVEL`         |                  0.59% |
-| `CLIMATE.CATEGORY`      |                  0.59% |
-| `CAUSE.CATEGORY`        |                  0%        |
-| `CAUSE.CATEGORY.DETAIL` |                 30.60%   |
+| `POSTAL.CODE `          |                  0%     |
+| `NERC.REGION`           |                  0%     |
+| `CLIMATE.REGION`        |                  0.39%  |
+| `ANOMALY.LEVEL`         |                  0.59%  |
+| `CLIMATE.CATEGORY`      |                  0.59%  |
+| `CAUSE.CATEGORY`        |                  0%     |
+| `CAUSE.CATEGORY.DETAIL` |                  30.60% |
 | `OUTAGE.DURATION`       |                  3.80%  |
-| `DEMAND.LOSS.MW`        |                 45.87%   |
-| `CUSTOMERS.AFFECTED`    |                 28.64%    |
+| `DEMAND.LOSS.MW`        |                  45.87% |
+| `CUSTOMERS.AFFECTED`    |                  28.64% |
 | `TOTAL.PRICE`           |                  1.44%  |
-| `TOTAL.SALES`          |                  1.44%  |
-| `TOTAL.CUSTOMERS`       |                  0%        |
-| `PC.REALGSP.REL`        |                  0%        |
-| `UTIL.REALGSP`          |                  0%        |
-| `PI.UTIL.OFUSA`         |                  0%        |
-| `POPULATION`            |                  0%        |
-| `POPPCT_URBAN`          |                  0%        |
-| `POPDEN_UC`             |                  0.66% |
-| `POPDEN_RURAL`          |                  0.66% |
-| `PCT_WATER_TOT`         |                  0%        |
-| `PCT_WATER_INLAND`      |                  0%        |
-| `OUTAGE.START`          |                  0.59% |
+| `TOTAL.SALES`           |                  1.44%  |
+| `TOTAL.CUSTOMERS`       |                  0%     |
+| `PC.REALGSP.REL`        |                  0%     |
+| `UTIL.REALGSP`          |                  0%     |
+| `PI.UTIL.OFUSA`         |                  0%     |
+| `POPULATION`            |                  0%     |
+| `POPPCT_URBAN`          |                  0%     |
+| `POPDEN_UC`             |                  0.66%  |
+| `POPDEN_RURAL`          |                  0.66%  |
+| `PCT_WATER_TOT`         |                  0%     |
+| `PCT_WATER_INLAND`      |                  0%     |
+| `OUTAGE.START`          |                  0.59%  |
 | `OUTAGE.RESTORATION`    |                  3.80%  |
 
 ## Framing a Prediction Problem
