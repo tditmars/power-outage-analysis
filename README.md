@@ -15,30 +15,30 @@ This dataset originally contained contained 1535 rows and 57 columns. We narrowe
 
 | Column Name in Outages Dataset | Description of Column |
 |--------|--------------|
-| POSTAL.CODE | Represents the postal code of the U.S. states|
-| NERC.REGION | The North American Electric Reliability Corporation (NERC) regions involved in the outage event|
-| CLIMATE.REGION | U.S. Climate regions as specified by National Centers for Environmental Information (nine climatically consistent regions in continental U.S.A.)|
-| ANOMALY.LEVEL | This represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season. It is estimated as a 3-month running mean of ERSST.v4 SST anomalies in the Niño 3.4 region (5°N to 5°S, 120–170°W) |
-| CLIMATE.CATEGORY | This represents the climate episodes corresponding to the years. The categories—“Warm”, “Cold” or “Normal” episodes of the climate are based on a threshold of ± 0.5 °C for the Oceanic Niño Index (ONI) |
-| CAUSE.CATEGORY | Categories of all the events causing the major power outages |
-| CAUSE.CATEGORY.DETAIL | Detailed description of the event categories causing the major power outages |
-| OUTAGE.DURATION |	Duration of outage events (in minutes) |
-| DEMAND.LOSS.MW | Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
-| CUSTOMERS.AFFECTED| Number of customers affected by the power outage event |
-| TOTAL.PRICE |	Average monthly electricity price in the U.S. state (cents/kilowatt-hour) |
-| TOTAL.SALES | Total electricity consumption in the U.S. state (megawatt-hour)|
-| TOTAL.CUSTOMERS |	Annual number of total customers served in the U.S. state |
-| PC.REALGSP.REL | Relative per capita real GSP as compared to the total per capita real GDP of the U.S. (expressed as fraction of per capita State real GDP & per capita US real GDP) |
-| UTIL.REALGSP | Real GSP contributed by Utility industry (measured in 2009 chained U.S. dollars) |
-| PI.UTIL.OFUSA | State utility sector׳s income (earnings) as a percentage of the total earnings of the U.S. utility sector׳s income (in %) |
-| POPULATION| Population in the U.S. state in a year |
-| POPPCT_URBAN | Percentage of the total population of the U.S. state represented by the urban population (in %) |
+| `POSTAL.CODE` | Represents the postal code of the U.S. states|
+| `NERC.REGION` | The North American Electric Reliability Corporation (NERC) regions involved in the outage event|
+| `CLIMATE.REGION` | U.S. Climate regions as specified by National Centers for Environmental Information (nine climatically consistent regions in continental U.S.A.)|
+| `ANOMALY.LEVEL` | This represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season. It is estimated as a 3-month running mean of ERSST.v4 SST anomalies in the Niño 3.4 region (5°N to 5°S, 120–170°W) |
+| `CLIMATE.CATEGORY` | This represents the climate episodes corresponding to the years. The categories—“Warm”, “Cold” or “Normal” episodes of the climate are based on a threshold of ± 0.5 °C for the Oceanic Niño Index (ONI) |
+| `CAUSE.CATEGORY` | Categories of all the events causing the major power outages |
+| `CAUSE.CATEGORY.DETAIL` | Detailed description of the event categories causing the major power outages |
+| `OUTAGE.DURATION` |	Duration of outage events (in minutes) |
+| `DEMAND.LOSS.MW` | Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
+| `CUSTOMERS.AFFECTED`| Number of customers affected by the power outage event |
+| `TOTAL.PRICE` |	Average monthly electricity price in the U.S. state (cents/kilowatt-hour) |
+| `TOTAL.SALES` | Total electricity consumption in the U.S. state (megawatt-hour)|
+| `TOTAL.CUSTOMERS` |	Annual number of total customers served in the U.S. state |
+| `PC.REALGSP.REL` | Relative per capita real GSP as compared to the total per capita real GDP of the U.S. (expressed as fraction of per capita State real GDP & per capita US real GDP) |
+| `UTIL.REALGSP` | Real GSP contributed by Utility industry (measured in 2009 chained U.S. dollars) |
+| `PI.UTIL.OFUSA` | State utility sector׳s income (earnings) as a percentage of the total earnings of the U.S. utility sector׳s income (in %) |
+| `POPULATION`| Population in the U.S. state in a year |
+| `POPPCT_URBAN` | Percentage of the total population of the U.S. state represented by the urban population (in %) |
 | POPDEN_UC | Population density of the urban clusters (persons per square mile) |
-| POPDEN_RURAL | Population density of the rural areas (persons per square mile) |
-| PCT_WATER_TOT | Percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. (in %) |
-| PCT_WATER_INLAND | Percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %) |
-| OUTAGE.START | DateTime object that indicates the day and time when the outage event started (as reported by the corresponding Utility in the region) |
-| OUTAGE.RESTORATION | DateTime object that indicates the day and time when power was restored to all the customers (as reported by the corresponding Utility in the region) |
+| `POPDEN_RURAL` | Population density of the rural areas (persons per square mile) |
+| `PCT_WATER_TOT` | Percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. (in %) |
+| `PCT_WATER_INLAND` | Percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %) |
+| `OUTAGE.START` | `pd.Timestamp` that indicates the day and time when the outage event started (as reported by the corresponding Utility in the region) |
+| `OUTAGE.RESTORATION` | `pd.Timestamp` that indicates the day and time when power was restored to all the customers (as reported by the corresponding Utility in the region) |
 
 ## Data Cleaning and Exploratory Data Analysis
 ### Data Cleaning
@@ -199,34 +199,34 @@ The results of the first group table largely mirrored what was displayed earlier
 
 ### Imputation
 
+The table below shows the percentage of null values in each of the 24 columns we kept in our cleaned dataset. Since the only columns with proportions of missing data that were non-negligible were columns that would either be unavailable at the time of prediction (and hence, better suited as response variables) or we had no intention of using to train our machine learning models, we did not feel it was necessary to impute any missing values.
+
 | Column Name           |   Percent of Data Missing |
 |:----------------------|--------------------------:|
-| POSTAL.CODE           |                  0        |
-| NERC.REGION           |                  0        |
-| CLIMATE.REGION        |                  0.393185 |
-| ANOMALY.LEVEL         |                  0.589777 |
-| CLIMATE.CATEGORY      |                  0.589777 |
-| CAUSE.CATEGORY        |                  0        |
-| CAUSE.CATEGORY.DETAIL |                 30.6029   |
-| OUTAGE.DURATION       |                  3.80079  |
-| DEMAND.LOSS.MW        |                 45.8716   |
-| CUSTOMERS.AFFECTED    |                 28.637    |
-| TOTAL.PRICE           |                  1.44168  |
-| TOTAL.SALES           |                  1.44168  |
-| TOTAL.CUSTOMERS       |                  0        |
-| PC.REALGSP.REL        |                  0        |
-| UTIL.REALGSP          |                  0        |
-| PI.UTIL.OFUSA         |                  0        |
-| POPULATION            |                  0        |
-| POPPCT_URBAN          |                  0        |
-| POPDEN_UC             |                  0.655308 |
-| POPDEN_RURAL          |                  0.655308 |
-| PCT_WATER_TOT         |                  0        |
-| PCT_WATER_INLAND      |                  0        |
-| OUTAGE.START          |                  0.589777 |
-| OUTAGE.RESTORATION    |                  3.80079  |
-
-The above table is showing the percentage of null values in each of the 24 columns we kept in our cleaned dataset. Since the only columns with proportions of missing data that were non-negligible were columns that would either be unavailable at the time of prediction (and hence, better suited as response variables) or we had no intention of using to train our machine learning models, we did not feel it was necessary to impute any missing values.
+| `POSTAL.CODE `          |                  0        |
+| `NERC.REGION`           |                  0        |
+| `CLIMATE.REGION`        |                  0.393185 |
+| `ANOMALY.LEVEL`         |                  0.589777 |
+| `CLIMATE.CATEGORY`      |                  0.589777 |
+| `CAUSE.CATEGORY`        |                  0        |
+| `CAUSE.CATEGORY.DETAIL` |                 30.6029   |
+| `OUTAGE.DURATION`       |                  3.80079  |
+| `DEMAND.LOSS.MW`        |                 45.8716   |
+| `CUSTOMERS.AFFECTED`    |                 28.637    |
+| `TOTAL.PRICE`           |                  1.44168  |
+| `TOTAL.SALES`          |                  1.44168  |
+| `TOTAL.CUSTOMERS`       |                  0        |
+| `PC.REALGSP.REL`        |                  0        |
+| `UTIL.REALGSP`          |                  0        |
+| `PI.UTIL.OFUSA`         |                  0        |
+| `POPULATION`            |                  0        |
+| `POPPCT_URBAN`          |                  0        |
+| `POPDEN_UC`             |                  0.655308 |
+| `POPDEN_RURAL`          |                  0.655308 |
+| `PCT_WATER_TOT`         |                  0        |
+| `PCT_WATER_INLAND`      |                  0        |
+| `OUTAGE.START`          |                  0.589777 |
+| `OUTAGE.RESTORATION`    |                  3.80079  |
 
 ## Framing a Prediction Problem
 
