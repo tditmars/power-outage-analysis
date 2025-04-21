@@ -91,12 +91,22 @@ frameborder='0'
 
 Similarly, the above histogram shows the binned distribution of outages by their reported demand loss (in Megawatts). The median value for '`DEMAND.LOSS.MW`' was 168.00 and the 75th percentile was 399.75.
 
-<iframe
+<!-- <iframe
 src="assets/outage_duration_distribution.html"
 width = '800'
 height='600'
 frameborder='0'
-></iframe>
+></iframe> -->
+
+<div style="margin: 0; padding: 0; line-height: 0;">
+  <iframe
+    src="assets/outage_duration_distribution.html"
+    width="800"
+    height="600"
+    frameborder="0"
+    style="margin: 0; padding: 0; display: block;">
+  </iframe>
+</div>
 
 Lastly, the above histogram shows the binned distribution of outages by their durations (in minutes). The median outage duration was 691 minutes (just over 11.5 hours), and the 75th percentile was 2880 minutes (2 days).
 
@@ -106,21 +116,12 @@ Each of these visualizations helped us to contextualize the data we were provide
 
 We then conducted a variety of bivariate analyses in an attempt to identify possible associations between features in our dataset, especially with our primary response variable '`CUSTOMERS.AFFECTED`' to help us eventually motivate the features on which our predictive models would be trained.
 
-<div style="
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  padding: 0;
-">
-
-  <iframe
+<iframe
     src="assets/new_cause_customers_affected.html"
     width="100%"
     height="600"
     frameborder="0"
-    style="border: none;">
-  </iframe>
-
-</div>
+></iframe>
 
 The above stacked box plot shows the distributions of the number of customers affected among outages with various causes. Each cause category had a slightly different distribution of customers affected, with severe weather outages having the highest median number of customers affected at roughly 110,433.
 
