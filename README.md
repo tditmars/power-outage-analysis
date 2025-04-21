@@ -329,12 +329,12 @@ Each of the 5 modeling algorithms we tried had its own associated hyperparameter
 
 1. **Linear Regression:** None
     - We want to compare the performance of our baseline model to another multiple Linear Regression model where the only change is the inclusion of our engineered features
-2. **Ridge Regression:** Alpha ($\lambda$)
+2. **Ridge Regression:** Alpha (λ)
     - The alpha hyperparameter in Ridge Regression adds a penalization factor for large coefficients, potentially leading to less overfitting. Since the out-of-sample performance of our baseline model was not great, we wanted to try to tune this hyperparamter to see if we could reduce the overfitting effect and achieve better performance on unseen data
     - **Values Tried:** 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000
     - **Best Performing Value:** 0.01
-3. **LASSO Regression:** Alpha ($\lambda$)
-    - Alpha in LASSO Regression serves a similar purpose to the hyperparameter in Ridge Regression, however it works to minimize the $L_1$ norm rather than the $L_2$ norm of $\vec w$. Again, we want to attempt to tune this hyperparameter to hopefully limit the overfitting of our final model
+3. **LASSO Regression:** Alpha (λ)
+    - Alpha in LASSO Regression serves a similar purpose to the hyperparameter in Ridge Regression, however it works to minimize the L<sub>1</sub> norm rather than the L<sub>2</sub> norm of the 𝑤 vector. Again, we want to attempt to tune this hyperparameter to hopefully limit the overfitting of our final model
     - **Values Tried:** 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000
     - **Best Performing Value:** 0.01
 4. **KNN:** Number of Neighbors (k)
