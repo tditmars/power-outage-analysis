@@ -108,8 +108,8 @@ We then conducted a variety of bivariate analyses in an attempt to identify poss
 
 <iframe
 src="assets/new_cause_customers_affected.html"
-width = '800'
-height='600'
+width = '100%'
+height='800'
 frameborder='0'
 ></iframe>
 
