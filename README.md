@@ -76,14 +76,17 @@ We first created the above histogram of the counts of outages in the dataset lab
 
 Once we had gotten a sense of the most frequent causes of the outages in our dataset, we wanted to get a sense of the relevant scale and severity of the outages. We identified three potential response variables of interest- '`CUSTOMERS.AFFECTED`', '`DEMAND.LOSS.MW`', and '`OUTAGE.DURATION`'- which we thought characterized the impact of an outage.
 
+<ul>
+<li>
 <iframe
 src="assets/customers_affected_distribution.html"
 width = '800'
 height='600'
 frameborder='0'
 ></iframe>
-
-The histogram above shows the binned distribution of outages by the number of customers affected in each outage. The median value for '`CUSTOMERS.AFFECTED`' was around 70,000, and the 75th percentile was around 150,000.
+<p>The histogram above shows the binned distribution of outages by the number of customers affected in each outage. The median value for '`CUSTOMERS.AFFECTED`' was around 70,000, and the 75th percentile was around 150,000.</p>
+</li>
+</ul>
 
 <iframe
 src="assets/demand_loss_distribution.html"
