@@ -231,6 +231,36 @@ The table below shows the percentage of null values in each of the 24 columns we
 
 ## Framing a Prediction Problem
 
+### Prediction Problem
+
+The goal of our analysis is to predict the number of customers affected ('`CUSTOMERS.AFFECTED`') by a given power outage. This is a **regression** problem, since the response variable we are trying to predict– the number of customers affected– is a continuous numerical variable.
+
+### Response Variable
+
+**Response Variable:** `CUSTOMERS.AFFECTED` – The number of customers affected by the power outage event
+
+**Units:** People
+
+The number of customers affected by a power outage event can be used as a measure of the scale or reach of the outage, which may also provide insight into the degree of economic impact caused by the event. Being able to accurately predict this value might help utility providers to allocate resources towards service recovery or further provide realistic estimates to local communities regarding how many households and/or businesses should anticipate being affected by a given outage.
+
+### Feature Justification
+
+When selecting the features that we would use to train both our baseline and final predictive models, we ensured that the features we selected would all be known at the **"time of prediction"**. Specifically, this meant that we could not use features such as '`CUSTOMERS.AFFECTED`', '`OUTAGE.DURATION`', or '`DEMAND.LOSS.MW`' which all represent some sort of numerical outcome that could only be measured after the outage itself had concluded, as this sort of information would not be readily available when predicting the impact of an ongoing or future outage. 
+
+Collectively, our models were trained on the following features, each of which can be documented/measured in their entirety prior to an outage actually occuring:
+- `ANOMALY.LEVEL`
+- `CAUSE.CATEGORY`
+- `PCT_WATER_TOT`
+- `POPPCT_URBAN`
+- `POSTAL.CODE`
+- `TOTAL.CUSTOMERS`
+
+### Model Evaluation Metric
+
+**Evaluation Metric:** Mean Absolute Error (MAE)
+
+During our EDA, we noticed the presence of many outlier outages which affected millions of customers, despite the 75th percentile of our response variable '`CUSTOMERS.AFFECTED`' being around 150,000. As such, we felt that the more common choice of Mean Squared Error (MSE) may penalize these outliers too heavily, so we decided to evaluate our models comparatively using MAE since it is more robust to outliers. Additionally, MAE is slightly easier to interpret and contextualize since the average error values it reports are in the same units (number of people) as our response variable.
+
 ## Baseline Model
 
 ## Final Model
