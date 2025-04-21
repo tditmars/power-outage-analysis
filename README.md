@@ -64,8 +64,8 @@ We began our exploratory data analysis by examining the distributions of various
 
 <iframe
 src="assets/cause_distribution.html"
-width = '800'
-height='600'
+width = 800
+height= 600
 frameborder='0'
 ></iframe>
 
@@ -172,22 +172,22 @@ We were interested in further examining the trends in overall outage severity (w
 
 | POSTAL.CODE   |   CUSTOMERS.AFFECTED |   OUTAGE.DURATION |   DEMAND.LOSS.MW |
 |:--------------|---------------------:|------------------:|-----------------:|
-| FL            |               303149 |          4084.19  |          846.921 |
+| FL            |               303149 |          4084.19  |          846.92 |
 | SC            |               251913 |          3135     |         1699.71  |
-| TX            |               223232 |          2560.56  |          552.083 |
-| IL            |               207027 |          1602.45  |          214.222 |
-| CA            |               201366 |          1674.56  |          668.522 |
+| TX            |               223232 |          2560.56  |          552.08 |
+| IL            |               207027 |          1602.45  |          214.22 |
+| CA            |               201366 |          1674.56  |          668.52 |
 | DC            |               194709 |          4303.6   |         1280     |
 | NY            |               190676 |          6034.96  |         1283.15  |
 | WV            |               179794 |          6979     |          362     |
-| PA            |               168537 |          3811.7   |          225.263 |
-| NM            |               166667 |           140.375 |          346.667 |
+| PA            |               168537 |          3811.7   |          225.26 |
+| NM            |               166667 |           140.38 |          346.67 |
 
 The results of the first group table largely mirrored what was displayed earlier in the choropleth chart, so we wanted to dive deeper by grouping on both the U.S. state and cause category together and finding the average number of customers affected for each combination, as shown by the slice of the pivot table below. We were surprised to find that zero of the top 5 combinations came from states which were in the top 5 by overall average customers affected. Furthermore, it was interesting to see that 6 of the top 10 combinations were related to system operability disruptions in particular, which could suggest that utility companies in those states are not well equipped to handle and contain the impact of these sorts of disruptions. 
 
 | POSTAL.CODE   | CAUSE.CATEGORY                |   AVG.CUSTOMERS.AFFECTED |
 |:--------------|:------------------------------|-------------------------:|
-| NY            | system operability disruption |                1.081e+06 |
+| NY            | system operability disruption |           1081000        |
 | MI            | system operability disruption |           759738         |
 | OH            | system operability disruption |           613000         |
 | VA            | system operability disruption |           600000         |
@@ -204,30 +204,30 @@ The table below shows the percentage of null values in each of the 24 columns we
 
 | Column Name           |   Percent of Data Missing |
 |:----------------------|--------------------------:|
-| `POSTAL.CODE `          |                  0        |
-| `NERC.REGION`           |                  0        |
-| `CLIMATE.REGION`        |                  0.393185 |
-| `ANOMALY.LEVEL`         |                  0.589777 |
-| `CLIMATE.CATEGORY`      |                  0.589777 |
-| `CAUSE.CATEGORY`        |                  0        |
-| `CAUSE.CATEGORY.DETAIL` |                 30.6029   |
-| `OUTAGE.DURATION`       |                  3.80079  |
-| `DEMAND.LOSS.MW`        |                 45.8716   |
-| `CUSTOMERS.AFFECTED`    |                 28.637    |
-| `TOTAL.PRICE`           |                  1.44168  |
-| `TOTAL.SALES`          |                  1.44168  |
-| `TOTAL.CUSTOMERS`       |                  0        |
-| `PC.REALGSP.REL`        |                  0        |
-| `UTIL.REALGSP`          |                  0        |
-| `PI.UTIL.OFUSA`         |                  0        |
-| `POPULATION`            |                  0        |
-| `POPPCT_URBAN`          |                  0        |
-| `POPDEN_UC`             |                  0.655308 |
-| `POPDEN_RURAL`          |                  0.655308 |
-| `PCT_WATER_TOT`         |                  0        |
-| `PCT_WATER_INLAND`      |                  0        |
-| `OUTAGE.START`          |                  0.589777 |
-| `OUTAGE.RESTORATION`    |                  3.80079  |
+| `POSTAL.CODE `          |                  0%        |
+| `NERC.REGION`           |                  0%        |
+| `CLIMATE.REGION`        |                  0.39% |
+| `ANOMALY.LEVEL`         |                  0.59% |
+| `CLIMATE.CATEGORY`      |                  0.59% |
+| `CAUSE.CATEGORY`        |                  0%        |
+| `CAUSE.CATEGORY.DETAIL` |                 30.60%   |
+| `OUTAGE.DURATION`       |                  3.80%  |
+| `DEMAND.LOSS.MW`        |                 45.87%   |
+| `CUSTOMERS.AFFECTED`    |                 28.64%    |
+| `TOTAL.PRICE`           |                  1.44%  |
+| `TOTAL.SALES`          |                  1.44%  |
+| `TOTAL.CUSTOMERS`       |                  0%        |
+| `PC.REALGSP.REL`        |                  0%        |
+| `UTIL.REALGSP`          |                  0%        |
+| `PI.UTIL.OFUSA`         |                  0%        |
+| `POPULATION`            |                  0%        |
+| `POPPCT_URBAN`          |                  0%        |
+| `POPDEN_UC`             |                  0.66% |
+| `POPDEN_RURAL`          |                  0.66% |
+| `PCT_WATER_TOT`         |                  0%        |
+| `PCT_WATER_INLAND`      |                  0%        |
+| `OUTAGE.START`          |                  0.59% |
+| `OUTAGE.RESTORATION`    |                  3.80%  |
 
 ## Framing a Prediction Problem
 
