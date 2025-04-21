@@ -106,12 +106,15 @@ Each of these visualizations helped us to contextualize the data we were provide
 
 We then conducted a variety of bivariate analyses in an attempt to identify possible associations between features in our dataset, especially with our primary response variable '`CUSTOMERS.AFFECTED`' to help us eventually motivate the features on which our predictive models would be trained.
 
+<div style="width: 100%; max-width: 1000px; margin: auto;">
 <iframe
 src="assets/new_cause_customers_affected.html"
 width = '100%'
-height='800'
+height='600'
 frameborder='0'
+style="display: block;">
 ></iframe>
+</div>
 
 The above stacked box plot shows the distributions of the number of customers affected among outages with various causes. Each cause category had a slightly different distribution of customers affected, with severe weather outages having the highest median number of customers affected at roughly 110,433.
 
